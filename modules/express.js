@@ -8,13 +8,14 @@ app.set("view engine", "ejs")
 app.set("views", "src/views")
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use("/public", express.static("public"))
 
 // Página principal
 app.get("/", (req, res) =>{
 
     // Criando condições de busca (usando exemplos)
     if(req.query.busca == null){
-        res.send("home")
+        res.render("home")
     } else {
         res.send(`Você buscou: ${req.query.busca}`) // Link para acessar: http://localhost:8080/?busca=jornal
     }
