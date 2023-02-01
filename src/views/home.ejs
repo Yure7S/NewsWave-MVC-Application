@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs")%>
     <main>
         <section class="destaque">
+            <img src="<%= notice.image%>" alt="">
             <div class="content">
                 <div class="container01">
                     <div class="autor">
@@ -9,8 +10,8 @@
                     <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="container02">
-                    <h2>Quer fugir das praias no verão?</h2>
-                    <p>Veja os melhores destinos para uma viagem a dois, com seu grupo ou até mesmo sozinho. Aproveite o calor longe das praias, curta lagos, cachoeiras e muito mais nesses destinos incríveis.</p>
+                    <h2><%= notice.title%></h2>
+                    <p><%= (notice.content).substr(0, 250)%></p>
                     <div class="navegate">
                         <div class="case-item"><div class="item"></div></div>
                         <div class="case-item"><div class="item"></div></div>
@@ -24,11 +25,10 @@
             <div class="content">
                 <div class="container01">
                     <div class="box01">
-                        <img src="../../public/img/IMAGEM2.png" alt="Surfistas">
+                        <img src="<%= posts[3].image%>" alt="Surfistas">
                         <div class="text">
-                            <h3>dica de aventura</h3>
-                            <h4>Como encarar o surf mesmo do frio</h4>
-                            <p>A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.</p>
+                            <h4><%= posts[3].title%></h4>
+                            <p><%= posts[3].content%></p>
                         </div>
                     </div>
                     <div class="box02">

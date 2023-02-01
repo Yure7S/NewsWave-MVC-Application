@@ -60,6 +60,7 @@ header{
 }
 
 header h1{
+    color: white;
     font-size: 26px;
 }
 
@@ -104,9 +105,17 @@ header form input{
     min-height: 492px;
     margin: 50px auto;
     border-radius: 8px;
-    background-image: url("../../public/img/IMAGEM.png");
     background-position: center;
     background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.destaque > img{
+    width: 100%;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 0;
 }
 
 .destaque .content{
@@ -117,7 +126,8 @@ header form input{
     color: white;
     padding: 40px 35px 52px 42px;
     border-radius: 8px;
-    position: relative;
+    position: absolute;
+    top: 0%;
 }
 
 .destaque .content .container01{
@@ -127,19 +137,19 @@ header form input{
 
 }
 
-.destaque .content .container01 .autor{
+.autor{
     display: flex;
     align-items: center;
 }
 
-.destaque .content .container01 .autor p{
+.autor p{
     text-transform: uppercase;
     margin-left: 10px;
     font-size: 13px;
     letter-spacing: 3.2px;
 }
 
-.destaque .content .container01 .autor img{
+.autor img{
     width: 30px;
 }
 
@@ -221,6 +231,10 @@ header form input{
     background-color: var(--white);
     padding-bottom: 15px;
     margin: 10px 10px;
+}
+
+.ultimas-publicacoes .box01 img{
+    border-radius: 10px 10px 0px 0px;
 }
 
 .ultimas-publicacoes .box01 .text, .ultimas-publicacoes .box02{
@@ -448,4 +462,42 @@ footer{
     .ultimas-publicacoes .content .mais-lidas .new .content p{
         max-width: 250px;
     }
+}
+
+/* Single */
+
+.new-single{
+    background-color: #EAEAEA;
+}
+
+
+.container-new{
+    display: flex;
+    max-width: 1300px;
+    padding-top: 50px;
+}
+
+.new-single .container-new .content-new{
+    padding: 26px 42px;
+    margin: 0px 20px 20px;
+    background-color: white;
+    width: calc(70% - 40px);
+    max-width: 1300px;
+}
+
+.new-single .container-new .content-new > p{
+    color: var(--gray03);
+    margin: 17px 0px;
+    line-height: 23px;
+}
+
+.new-single .container-new .content-new > h3{
+    color: var(--gray03);
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.new-single .container-new .content-new > h2{
+    color: var(--gray02);
+    font-size: 35px;
 }

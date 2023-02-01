@@ -1,5 +1,6 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+const Posts = require("../src/models/new.model")
 const app = express()
 const port = 8080
 
@@ -13,17 +14,26 @@ app.use("/public", express.static("public"))
 // Página principal
 app.get("/", (req, res) =>{
 
-    // Criando condições de busca (usando exemplos)
-    if(req.query.busca == null){
-        res.render("home")
-    } else {
-        res.send(`Você buscou: ${req.query.busca}`) // Link para acessar: http://localhost:8080/?busca=jornal
+    try{
+        // Criando condições de busca (usando exemplos)
+        if(req.query.busca == null){
+            Posts.find({}).sort({"_id": 1}).exec((error, posts) => {
+                const notice = posts[0]
+                res.render("home", {notice, posts})
+            })
+        } else {
+            res.send(`Você buscou: ${req.query.busca}`) // Link para acessar: http://localhost:8080/?busca=jornal
+        }
+
+    } catch(error){
+        res.send(error.message)
     }
+
 })
 
 // Notícia
 app.get("/:slug", (req, res) =>{
-    res.send(req.params.slug)
+    res.render("single", {})
 })
 
 app.listen(port, () => console.log("Server On!"))
