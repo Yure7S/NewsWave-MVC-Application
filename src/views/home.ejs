@@ -60,34 +60,21 @@
                 <div class="mais-lidas">
                     <h3>As mais lidas</h3>
                     <div class="container">
-                        <div class="new new1">
-                            <img src="../../public/img/NATUREZA1.png" alt="Fotografia da natureza">
-                            <div class="content">
-                                <h4>Natureza</h4>
-                                <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                        <%counter = 0%>
+                        <%for(let item of posts){%>
+                            <div class="new">
+                                <div class="image">
+                                    <img src="<%= item.image%>" alt="Fotografia da natureza">
+                                </div>
+                                <div class="content">
+                                    <h4><%= item.title%></h4>
+                                    <p><%= item.content.substr(0, 50) + "..."%></p>
+                                    <a href="<%= item.slug%>">ler mais</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="new new2">
-                            <img src="../../public/img/MUNDOANIMAL.png" alt="Imagem de um animal">
-                            <div class="content">
-                                <h4>Mundo Animal</h4>
-                                <p>Com idade avançada, leão do Parque Dois Irmãos é diagnosticado com câncer e recebe tratamento. Espécie está ameaçada de extinção.</p>
-                            </div>
-                        </div>
-                        <div class="new new3">
-                            <img src="../../public/img/TECNOLOGIA.png" alt="Imagem retratando a tecnologia">
-                            <div class="content">
-                                <h4>Tecnologia</h4>
-                                <p>O impacto do uso de fones de ouvido a longo prazo. Descubra como esse dispositivo pode afetar sua audição sem você nem perceber.</p>
-                            </div>
-                        </div>
-                        <div class="new new4">
-                            <img src="../../public/img/LIFESTYLE.png" alt="Imagem retratando o estilo de vida">
-                            <div class="content">
-                                <h4>Lifestyle</h4>
-                                <p>Fazer uma viagem sempre é um momento incrível para a família. Descubra os melhores destinos para 2021.</p>
-                            </div>
-                        </div>
+                            <%++counter%>
+                            <%if(counter > 3) break%>
+                        <%}%>
                     </div>               
                 </div>
             </div>

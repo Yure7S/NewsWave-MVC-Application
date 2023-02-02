@@ -21,6 +21,9 @@ const newSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    views: {
+        type: Number
+    }
 })
 
 const Posts = mongoose.model("Posts", newSchema)

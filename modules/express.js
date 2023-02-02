@@ -12,28 +12,31 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
 
 // Página principal
-app.get("/", (req, res) =>{
-
+app.get("/", async (req, res) =>{
     try{
         // Criando condições de busca (usando exemplos)
         if(req.query.busca == null){
-            Posts.find({}).sort({"_id": 1}).exec((error, posts) => {
-                const notice = posts[0]
-                res.render("home", {notice, posts})
-            })
+            const posts = await Posts.find({})
+            const notice = (posts.reverse())[0]
+            res.render("home", {notice, posts})
         } else {
             res.send(`Você buscou: ${req.query.busca}`) // Link para acessar: http://localhost:8080/?busca=jornal
         }
-
     } catch(error){
         res.send(error.message)
     }
-
 })
 
 // Notícia
-app.get("/:slug", (req, res) =>{
-    res.render("single", {})
+app.get("/:slug", async (req, res) =>{
+    const slug = req.params.slug
+    const posts = await Posts.find({})
+    const notice = posts.find(item => item.slug == slug)
+    console.log(notice)
+    Posts.findOneAndUpdate({slug: slug}, {$inc: {views: 1}}, {new: true}, (error) => {
+        if(error) res.send(error.message)
+        res.render("single", {posts, notice})
+    })
 })
 
 app.listen(port, () => console.log("Server On!"))
