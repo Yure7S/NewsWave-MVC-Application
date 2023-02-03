@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs")%>
     <main>
         <section class="destaque">
-            <img src="<%= notice.image%>" alt="">
+            <img src="<%= mostViews[0].image%>" alt="">
             <div class="content">
                 <div class="container01">
                     <div class="autor">
@@ -10,8 +10,8 @@
                     <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="container02">
-                    <h2><%= notice.title%></h2>
-                    <p><%= (notice.content).substr(0, 250)%></p>
+                    <h2><%= mostViews[0].title%></h2>
+                    <p><%= (mostViews[0].content).substr(0, 250)%></p>
                     <div class="navegate">
                         <div class="case-item"><div class="item"></div></div>
                         <div class="case-item"><div class="item"></div></div>
@@ -27,8 +27,8 @@
                     <div class="box01">
                         <img src="<%= posts[3].image%>" alt="Surfistas">
                         <div class="text">
-                            <h4><%= posts[3].title%></h4>
-                            <p><%= posts[3].content%></p>
+                            <h4><%= mostViews[2].title%></h4>
+                            <p><%= mostViews[2].content%></p>
                         </div>
                     </div>
                     <div class="box02">
@@ -57,26 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mais-lidas">
-                    <h3>As mais lidas</h3>
-                    <div class="container">
-                        <%counter = 0%>
-                        <%for(let item of posts){%>
-                            <div class="new">
-                                <div class="image">
-                                    <img src="<%= item.image%>" alt="Fotografia da natureza">
-                                </div>
-                                <div class="content">
-                                    <h4><%= item.title%></h4>
-                                    <p><%= item.content.substr(0, 50) + "..."%></p>
-                                    <a href="<%= item.slug%>">ler mais</a>
-                                </div>
-                            </div>
-                            <%++counter%>
-                            <%if(counter > 3) break%>
-                        <%}%>
-                    </div>               
-                </div>
+                <%- include("partials/mais-lidas.ejs")%>
             </div>
         </section>
     </main>

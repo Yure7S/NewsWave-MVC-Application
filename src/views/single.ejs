@@ -9,26 +9,7 @@
                 </div>
                 <p><%= notice.content%></p>
             </div>
-            <div class="mais-lidas">
-                <h3>As mais lidas</h3>
-                <div class="container">
-                    <%counter = 0%>
-                    <%for(let item of posts){%>
-                        <div class="new">
-                            <div class="image">
-                                <img src="<%= item.image%>" alt="Fotografia da natureza">
-                            </div>
-                            <div class="content">
-                                <h4><%= item.title%></h4>
-                                <p><%= item.content.substr(0, 50) + "..."%></p>
-                                <a href="<%= item.slug%>">ler mais</a>
-                            </div>
-                        </div>
-                        <%++counter%>
-                        <%if(counter > 3) break%>
-                    <%}%>
-                </div>               
-            </div>
+            <%- include("partials/mais-lidas.ejs")%>
         </div>
     </div>
 </main>

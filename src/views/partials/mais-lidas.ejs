@@ -1,0 +1,18 @@
+<div class="mais-lidas">
+    <h3>mais lidas</h3>
+    <div class="container">
+        <%for(let item of mostViews){%>
+            <div class="new">
+                <div class="image">
+                    <img src="<%= item.image%>" alt="Fotografia da natureza">
+                </div>
+                <div class="content">
+                    <h4><%= item.title%></h4>
+                    <span><i class="fa-regular fa-eye"></i><span><%= item.views%></span></span>
+                    <p><%= item.content.substr(0, 50) + "..."%></p>
+                    <a href="<%= item.slug%>">Ler mais<i class="fa-solid fa-arrow-right"></i></i></a>
+                </div>
+            </div>
+        <%}%>
+    </div>               
+</div>
