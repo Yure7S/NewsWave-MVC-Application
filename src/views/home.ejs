@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs")%>
     <main>
         <section class="destaque">
-            <img src="<%= mostViews[0].image%>" alt="">
+            <img src="data:image/png;base64,<%= mostViews[0].image%>" alt="">
             <div class="content">
                 <div class="container01">
                     <div class="autor">
@@ -25,7 +25,7 @@
             <div class="content">
                 <div class="container01">
                     <div class="box01">
-                        <img src="<%= posts[3].image%>" alt="Surfistas">
+                        <img src="data:image/png;base64,<%= mostViews[2].image%>" alt="Surfistas">
                         <div class="text">
                             <h4><%= mostViews[2].title%></h4>
                             <p><%= mostViews[2].content%></p>

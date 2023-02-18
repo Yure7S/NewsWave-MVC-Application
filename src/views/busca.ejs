@@ -7,7 +7,7 @@
             <%for(let item of result){%>
                 <div class="new">
                     <div class="image">
-                        <img src="<%= item.image%>" alt="Fotografia da natureza">
+                        <img src="data:image/png;base64,<%= item.image%>" alt="Fotografia da natureza">
                     </div>
                     <div class="content">
                         <h4><%= item.title%></h4>

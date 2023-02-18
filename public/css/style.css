@@ -28,10 +28,13 @@
     text-decoration: none;
     box-sizing: border-box;
     outline: none;
+    list-style: none;
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 58px;
 }
 
 ::placeholder{
@@ -48,7 +51,7 @@ body{
 }
 
 /* Content */
-header{
+header .content{
     display: flex;
     background-color: var(--blue);
     padding: 15px 70px;
@@ -69,7 +72,7 @@ header h1 span{
     color: rgba(255, 255, 255, 0.836);
 }
 
-header > i{
+header .content > i{
     font-size: 28px;
     padding-right: calc(216px - 24.5px);
 }
@@ -94,6 +97,42 @@ header form input{
     background-color: rgba(0, 0, 0, 0);
     color: white;
     height: 45px;
+}
+
+/* Menu */
+nav{
+    background-color: var(--gray02);
+    width: fit-content;
+    padding: 0px 10px;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+    height: 0px;
+    transition: 0.3s ease;
+    z-index: 99999;
+}
+
+nav ul li{
+    margin: 0px 15px 0px 20px;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li i{
+    margin-right: 5px;
+}
+
+nav ul .topic{
+    margin: 20px 10px 10px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.884);
+    letter-spacing: 2.4px;
+}
+
+nav ul a:hover li{
+    color: var(--blue);
 }
 
 /* Destaque */
@@ -447,8 +486,10 @@ footer{
     text-align: center;
     color: white;
     font-size: 14px;
-    position: relative;
+    position: absolute;
     bottom: 0px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 1000px){
@@ -513,6 +554,18 @@ footer{
     background-color: #EAEAEA;
 }
 
+.image-single{
+    width: 85%;
+    height: 30vw;
+    margin: 30px auto;
+}
+
+.image-single > img{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .container-new{
     display: flex;
@@ -532,16 +585,19 @@ footer{
     color: var(--gray03);
     margin: 17px 0px;
     line-height: 23px;
+    max-width: 100%;
 }
 
 .new-single .container-new .content-new > h3{
     color: var(--gray03);
     font-size: 25px;
     margin-top: 50px;
+    
 }
 
 .new-single .container-new .content-new > h2{
     color: var(--gray02);
+    margin: 10px 0px 20px;
     font-size: 35px;
 }
 
@@ -554,5 +610,214 @@ footer{
     width: 90%;
     max-width: 800px;
     margin: 0px auto;
+    background-color: #EAEAEA;
+    padding-bottom: 15px;
+    box-shadow: 10px 10px 90px rgba(0, 0, 0, 0.24);
 }
 
+#busca .mais-lidas .container .new{
+    margin: 40px 0px 0px 0px;
+}
+
+/* Adicionar tarefa */
+#add-new form{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 500px;
+    margin: 50px auto 0px;
+    min-height: 535px;
+}
+
+#add-new form input, textarea, select{
+    margin: 10px auto;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+#add-new form label{
+    color: black;
+    margin-top: 25px;
+}
+
+#add-new form textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+
+#add-new form input[type="submit"]{
+    background-color: var(--blue);
+    transition: 0.3s ease;
+    color: white;
+    border: 0px;
+    width: 50%;
+}
+
+#add-new form input[type="submit"]:hover{
+    border: 1px solid var(--blue);
+    background-color: initial;
+    color: var(--blue);
+    cursor: pointer;
+}
+
+#add-new form input[type="file"]{
+    display: none;
+}
+
+#add-new form .upload-image{
+    text-align: center;
+    background-color: #EAEAEA;
+    padding: 15px 15%;
+    border: 1px solid black;
+}
+
+#add-new form .upload-image i{
+    margin-right: 10px;
+}
+
+#add-new form .upload-image span{
+    font-size: 13px;
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.185);
+    padding: 4px;
+}
+
+#add-new form .upload-image:hover{
+    cursor: pointer;
+    background-color: #dadada;
+}
+
+/* Admin painel */
+#painel .container{
+    background-color: #303336;
+    color: white;
+}
+
+#painel .content{
+    width: 95%;
+    max-width: 850px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0px auto;
+    padding: 40px 0px 25px;
+}
+
+#painel .content .profile-image{
+    max-width: 200px;
+    max-height: 240px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: white;
+}
+
+#painel .content .profile-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#painel .content .profile-description{
+    padding-left: 25px;
+}
+
+#painel .content .profile-description .top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#painel .content .profile-description .top button{
+    padding: 7px 10px;
+    background-color: white;
+    color: #303336;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 1px solid #303336;
+}
+
+#painel .content .profile-description .top button:hover{
+    border: 1px solid white;
+    cursor: pointer;
+    color: white;
+    background-color: #303336;
+}
+
+#painel .content .profile-description .metrics span{
+    margin: 0px 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#painel .content .profile-description .metrics .publications::after{
+    content: "publicações";
+    margin-left: 7px;
+    font-weight: 100;
+    font-size: 13px;
+}
+
+#painel .content .profile-description .metrics .followers::after{
+    content: "seguidores";
+    margin-left: 7px;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+#painel .content .profile-description .metrics .views i{
+    margin-left: 7px;
+    font-weight: lighter;
+}
+
+
+#painel .content .profile-description .biography{
+    margin-top: 30px;
+    max-width: 500px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+#painel .topics{
+    padding: 20px 0px 0px;
+    display: flex;
+    box-shadow: 15px 0px 50px rgba(0, 0, 0, 0.3);
+    justify-content: space-around;
+}
+
+#painel .topics li{
+    border-bottom: 1px solid #303336e0;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 0px;
+    width: 30%;
+}
+
+/* Cadastro */
+#cadastro form{
+    display: flex;
+    width: 95%;
+    max-width: 320px;
+    flex-direction: column;
+    margin: 50px auto 20px;
+}
+
+#cadastro form input{
+    margin: 8px 0px 15px;
+    padding: 8px 10px;
+}
+
+#cadastro .altern{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 100px;
+}
+
+#cadastro .altern a{
+    text-decoration-line: underline;
+    text-underline-offset: 5px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+/* Login */

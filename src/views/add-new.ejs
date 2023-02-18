@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs")%>
+<main id="add-new">
+    <form method="post" enctype="multipart/form-data">
+        <label for="title">Título</label>
+        <input id="title" type="text" name="title" required>
+        <label class="upload-image" for="image"><i class="fa-solid fa-upload"></i>Carregar imagem</label>
+        <input id="image" type="file" name="image" required>
+        <label for="category">Categoria</label>
+        <select name="category" id="category" required>
+            <option selected>Selecione</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Natureza">Natureza</option>
+            <option value="Empreendedorismo">Empreendedorismo</option>
+            <option value="Arquitetura">Arquitetura</option>
+            <option value="Animais">Animais</option>
+            <option value="Automobilismo">Automobilismo</option>
+        </select>
+        <label for="content">Conteúdo</label>
+        <textarea id="content" name="content" required></textarea>
+        <input name="action" type="submit" value="Adicionar notícia">
+    </form>
+    <script>
+        const labelImage = document.querySelector(".upload-image")
+        const inputImage = document.querySelector("#image")
+        
+        inputImage.addEventListener("change", (e) => {
+            const fileName = e.target.files[0].name
+            
+            let span = document.createElement("span")
+            span.textContent = fileName
+            labelImage.textContent = `(${span.innerText}) Foi enviado com sucesso!`
+        })
+    </script>
+</main>
+<%- include("partials/footer.ejs")%>

@@ -22,7 +22,8 @@ const newSchema = new mongoose.Schema({
         require: true
     },
     views: {
-        type: Number
+        type: Number,
+        default: 0
     }
 })
 

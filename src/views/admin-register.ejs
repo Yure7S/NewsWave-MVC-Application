@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>Portal Danki</title>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <a href="/"><h1><span>Portal</span>Danki</h1></a>
+            <form>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="busca" placeholder="Buscar">
+            </form>
+        </div>
+    </header>
+    <main id="cadastro">
+        <form method="post">
+            <span>Nome completo</span>
+            <input type="username" name="fullName" placeholder="Nome completo">
+            <span>Data de nascimento</span>
+            <input type="date" name="date" placeholder="Data de nascimento">
+            <span>E-mail</span>
+            <input type="email" name="login" placeholder="nome">
+            <span>Crie sua senha</span>
+            <input type="password" name="senha" placeholder="senha">
+            <span>Confirme sua senha</span>
+            <input type="password" placeholder="senha">
+            <input type="submit" value="Cadastrar">
+        </form>
+        <div class="altern">
+            Já possui conta? <a href="/admin/login">ENTRAR</a>
+        </div>
+    </main>
+
+<%- include("partials/footer.ejs")%>

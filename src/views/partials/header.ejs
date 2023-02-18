@@ -12,10 +12,49 @@
 </head>
 <body>
     <header>
-        <i class="fa-solid fa-bars"></i>
-        <a href="/"><h1><span>Portal</span>Danki</h1></a>
-        <form>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" name="busca" placeholder="Buscar">
-        </form>
+        <div class="content">
+            <i class="fa-solid fa-bars"></i>
+            <a href="/"><h1><span>Portal</span>Danki</h1></a>
+            <form>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="busca" placeholder="Buscar">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <%if(checkSession == true){%>
+                    <a href="/add/adicionar-noticia"><li><i class="fa-solid fa-plus"></i>Adicionar notícia</li></a>
+                    <a href="/admin/login"><li><i class="fa-solid fa-user"></i>Minha Conta</li></a>
+                    <a href=""><li><i class="fa-solid fa-gear"></i>Configurações</li></a>
+                <%} else {%>
+                    <a href="/admin/login"><li>Login</li></a>
+                    <a href="/admin/cadastro"><li>Cadastrar</li></a>
+                <%}%>
+                <div class="topic"><span>Categorias</span></div>
+                <a href=""><li>Tecnologia</li> </a>
+                <a href=""><li>Empreendedorismo</li> </a>
+                <a href=""><li>Natureza</li> </a>
+                <a href=""><li>Animais</li> </a>
+                <a href=""><li>Arquitetura</li> </a>
+                <a href=""><li>Automobilístico</li> </a>
+            </ul>
+        </nav>
+        <script>
+            let menu = document.querySelector("header .content i")
+            let navigate = document.querySelector("header nav")
+
+            let count = false
+            function openMenu(){
+                if(count == false){
+                    navigate.style.height = "fit-content"
+                    navigate.style.padding = "20px 10px"                    
+                    count = true
+                } else{
+                    navigate.style.height = "0px"                    
+                    navigate.style.padding = "0px 10px"                    
+                    count = false
+                }
+            }
+            menu.addEventListener("click", openMenu)
+        </script>
     </header>
