@@ -1,5 +1,4 @@
 const express = require("express")
-const fs = require("fs")
 const bodyParser = require("body-parser")
 const multer = require("multer")
 const Posts = require("../src/models/new.model")
@@ -66,7 +65,7 @@ app.post("/add/adicionar-noticia", upload.single("image"), async (req, res) => {
 
     try{
         let slug = (req.body.title).toLowerCase().split(" ").join("-")
-
+        let user = req.session.login
         const base64File = Buffer.from(req.file.buffer).toString("base64") // Convertendo para base64
 
         await Posts.create({
@@ -74,7 +73,8 @@ app.post("/add/adicionar-noticia", upload.single("image"), async (req, res) => {
             image: base64File, 
             category: req.body.category, 
             content: req.body.content, 
-            slug: slug
+            slug: slug,
+            creator: user
         })
 
         res.render("add-new.ejs", {})
@@ -85,24 +85,21 @@ app.post("/add/adicionar-noticia", upload.single("image"), async (req, res) => {
 })
 
 // Login
-let users = [
-    {
-        login: "yuresilvaesilva07@gmail.com",
-        senha: "123456"
-    }
-]
-
-app.post("/admin/login", (req, res) => {
+app.post("/admin/login", async (req, res) => {
     try {
-        // Verificando usuário existente no array
-        users.map((item) => {
-            if(item.login === req.body.login && item.senha === req.body.senha){ 
-                req.session.login = "Yure"
-                res.redirect("/admin/login")
-            } else {
-                res.send("Usuário não cadastrado! Tente novamente")
+        // Verificando usuário existente no Database
+        let email = req.body.login
+        let user = await User.find({email})
+
+        if(user != false){
+            req.session.login = {
+                username: user[0].username,
+                email: user[0].email
             }
-        })
+            res.redirect("/admin/login")
+        } else{
+            res.send("Nome ou senha incorretos")
+        }
 
     } catch (error) {
         if(error) res.send(error.message)
@@ -123,7 +120,8 @@ app.get("/admin/login", (req, res) => {
 // Cadastro
 app.get("/admin/cadastro", (req, res) => {
     try{
-        res.render("admin-register", {})
+        let pass = true
+        res.render("admin-register", {pass})
     } catch(error){
         res.send(error.message)
     }
@@ -131,15 +129,15 @@ app.get("/admin/cadastro", (req, res) => {
 
 app.post("/admin/cadastro", async (req, res) => {
     try {
-        let nameUser = req.body.fullName
-        let check = await User.find({name: nameUser})
-        console.log(check)
+        let email = req.body.login
+        let check = await User.find({email})
 
-        if(check == true){
+        if(check != false){
             let pass = false
             res.render("admin-register", {pass})
         } else{
             await User.create({
+                username: req.body.username,
                 name: req.body.fullName,
                 date: req.body.date,
                 email: req.body.login,

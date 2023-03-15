@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/style.css">
-    <title>Portal Danki</title>
+    <title>NewsWave</title>
 </head>
 <body>
     <header>
         <div class="content">
             <i class="fa-solid fa-bars"></i>
-            <a href="/"><h1><span>Portal</span>Danki</h1></a>
+            <a href="/"><h1><span>News</span>Wave</h1></a>
             <form>
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" name="busca" placeholder="Buscar">
@@ -27,8 +27,8 @@
                     <a href="/admin/login"><li><i class="fa-solid fa-user"></i>Minha Conta</li></a>
                     <a href=""><li><i class="fa-solid fa-gear"></i>Configurações</li></a>
                 <%} else {%>
-                    <a href="/admin/login"><li>Login</li></a>
-                    <a href="/admin/cadastro"><li>Cadastrar</li></a>
+                    <a href="/admin/login"><li class="login">Login</li></a>
+                    <a href="/admin/cadastro"><li class="cadastro">Cadastrar</li></a>
                 <%}%>
                 <div class="topic"><span>Categorias</span></div>
                 <a href=""><li>Tecnologia</li> </a>
@@ -55,6 +55,18 @@
                     count = false
                 }
             }
-            menu.addEventListener("click", openMenu)
+
+            document.addEventListener("click", (e) => {
+                e = e.target
+                if(e == menu){
+                    openMenu()
+                } else{
+                    navigate.style.height = "0px"                    
+                    navigate.style.padding = "0px 10px"                    
+                    count = false
+                }
+            })
+
+            // menu.addEventListener("click", openMenu)
         </script>
     </header>

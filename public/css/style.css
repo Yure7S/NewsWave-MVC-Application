@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* root */
 :root{
     --white: #FFFFFF;
@@ -110,6 +114,7 @@ nav{
     height: 0px;
     transition: 0.3s ease;
     z-index: 99999;
+    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.48);
 }
 
 nav ul li{
@@ -118,6 +123,26 @@ nav ul li{
     padding: 10px;
     font-size: 14px;
     transition: 0.3s;
+}
+
+nav ul .login{
+    background-color: var(--blue);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--blue);
+}
+
+nav ul .login:hover{
+    background-color: var(--gray02);
+}
+
+nav ul .cadastro{
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--gray02);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-top: 0px;
 }
 
 nav ul li i{
@@ -793,27 +818,33 @@ footer{
     width: 30%;
 }
 
-/* Cadastro */
-#cadastro form{
+/* Cadastro/Login */
+#cadastro form, #login form{
     display: flex;
     width: 95%;
     max-width: 320px;
     flex-direction: column;
     margin: 50px auto 20px;
+    padding: 24px;
+    background-color: var(--gray02);
+    border-radius: 5px;
+    color: white;
 }
 
-#cadastro form input{
+#cadastro form input, #login form input{
     margin: 8px 0px 15px;
-    padding: 8px 10px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid black;
 }
 
-#cadastro .altern{
+#cadastro .altern, #login .altern{
     text-align: center;
     font-size: 14px;
     margin-bottom: 100px;
 }
 
-#cadastro .altern a{
+#cadastro .altern a, #login .altern a{
     text-decoration-line: underline;
     text-underline-offset: 5px;
     font-weight: bold;

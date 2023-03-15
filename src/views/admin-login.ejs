@@ -8,28 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/style.css">
-    <title>Portal Danki</title>
+    <title>NewsWave</title>
 </head>
 <body>
     <header>
         <div class="content">
-            <a href="/"><h1><span>Portal</span>Danki</h1></a>
+            <a href="/"><h1><span>News</span>Wave</h1></a>
             <form>
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" name="busca" placeholder="Buscar">
             </form>
         </div>
     </header>
-    <form method="post">
-        <span>E-mail</span>
-        <input type="email" name="login" placeholder="nome">
-        <span>Senha</span>
-        <input type="password" name="senha" placeholder="senha">
-        <input type="submit" value="Login">
-    </form>
-    <div class="altern">
-        Já possui conta? <a href="/admin/login">ENTRAR</a>
-    </div>
+    <main id="login">
+        <form method="post">
+            <span>E-mail</span>
+            <input type="email" name="login" placeholder="nome">
+            <span>Senha</span>
+            <input type="password" name="senha" placeholder="senha">
+            <input type="submit" value="Login">
+        </form>
+        <div class="altern">
+            Já possui conta? <a href="/admin/login">ENTRAR</a>
+        </div>
+    </main>
 
 <%- include("partials/footer.ejs")%>
 

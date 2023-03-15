@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/style.css">
-    <title>Portal Danki</title>
+    <title>NewsWave</title>
 </head>
 <body>
     <header>
         <div class="content">
-            <a href="/"><h1><span>Portal</span>Danki</h1></a>
+            <a href="/"><h1><span>News</span>Wave</h1></a>
             <form>
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" name="busca" placeholder="Buscar">
@@ -22,6 +22,11 @@
     </header>
     <main id="cadastro">
         <form method="post">
+            <%if(pass == false){%>
+                <span>Este email já foi cadastrado!</span>
+            <%}%>
+            <span>Nome de usuário</span>
+            <input type="text" name="username" placeholder="Nome de usuário">
             <span>Nome completo</span>
             <input type="username" name="fullName" placeholder="Nome completo">
             <span>Data de nascimento</span>

@@ -24,6 +24,10 @@ const newSchema = new mongoose.Schema({
     views: {
         type: Number,
         default: 0
+    },
+    creator: {
+        type: String,
+        require: true
     }
 })
 
